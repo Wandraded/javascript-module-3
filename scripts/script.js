@@ -52,7 +52,7 @@ const episodeList = (resJson) => {
     ul.className = 'nav nav-pills flex-column mb-3';
     list.appendChild(ul);
     for(let i=0;i<count;i++){
-        const li = document.createElement('li');
+    const li = document.createElement('li');
         li.className = 'nav-item m-2 col-10';
         ul.appendChild(li);
         li.innerHTML = `<a href="#" class="nav-link active" aria-current="page">Episode ${i+1}</a>`;
