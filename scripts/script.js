@@ -4,8 +4,8 @@ const content = document.createElement('div');
 body.appendChild(content);
 body.className = 'container';
 content.className = 'd-flex content';
-root.innerHTML = '<header class="bg-light d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"><a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"><span class="fs-4">Rick & Morty API</span></a></header>';
-content.innerHTML = '<div class="d-flex flex-column flex-shrink-0 p-3 bg-light overflow-auto" id="list" style="width: 200px; height: 725px"><a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"><span class="fs-4">Episode List</span></a></div><div class="m-5 contentEpisode"></>';
+root.innerHTML = '<header class="bg-light d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"><a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"><img class="m-3" width="300" height=80" src="https://raw.githubusercontent.com/wandraded/javascript-module-3/main/images/image4.png" alt=""></a></header>';
+content.innerHTML = '<div class="d-flex flex-column flex-shrink-0 p-3 bg-light overflow-auto" id="list" style="width: 200px; height: 665px"><a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"><span class="fs-4">Episode List</span></a></div><div class="m-5 contentEpisode"></>';
 const clearContent = () => {
     const contentEpisode = document.querySelector('.contentEpisode');
     contentEpisode.innerHTML='';
@@ -26,12 +26,11 @@ const episodeContent = (resJson) => {
     fetch(character)
     .then(response => response.json())
     .then(json => {
-      console.log(json)
       const personajesEpisodios = document.querySelector(".personajesEpisodios")
       const card = document.createElement('div')
       card.className = 'col-3'
       personajesEpisodios.appendChild(card)
-      card.innerHTML = `<div class="card m-3" style="width: 14rem;"><img src="${json.image}" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">${json.name}</h5><h5 class="card-title">${json.species} | ${json.status}</h5></div></div>`;
+      card.innerHTML = `<div class="card m-3" style="background-color: rgb(9,181,0); color: white": 14rem;"><img src="${json.image}" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">${json.name}</h5><h5 class="card-title">${json.species} | ${json.status}</h5></div></div>`;
     }) 
     });
 }
@@ -52,10 +51,10 @@ const episodeList = (resJson) => {
     ul.className = 'nav nav-pills flex-column mb-3';
     list.appendChild(ul);
     for(let i=0;i<count;i++){
-    const li = document.createElement('li');
+        const li = document.createElement('li');
         li.className = 'nav-item m-2 col-10';
         ul.appendChild(li);
-        li.innerHTML = `<a href="#" class="nav-link active" aria-current="page">Episode ${i+1}</a>`;
+        li.innerHTML = `<a href="#" class="nav-link active" style="background-color: rgb(9,181,0)" aria-current="page">Episode ${i+1}</a>`;
         li.onclick = () => fetchEpisodes(i+1);
     }
 }
