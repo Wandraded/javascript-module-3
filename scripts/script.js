@@ -57,7 +57,7 @@ const renderCharacter = (character) => {
     img.src = `${character.image}`
     h1.innerText = character.name;
     h5.innerHTML = `${character.species} | ${character.status} | ${character.gender} | ${character.origin.name}`;
-    button.innerHTML = `<button type="button" class="btn btn-light"><b>Location</b></button>`;
+    button.innerHTML = `<button type="button" class="btn btn-light" style="color: white;background-color: rgb(0, 199, 24);"><b>Location</b></button>`;
     button.onclick = () => renderLocation(character.location.url);
     contentEpisode.appendChild(divUp);
     divUp.appendChild(img);
@@ -125,12 +125,12 @@ const episodeList = (resJson) => {
         const li = document.createElement('li');
         li.className = 'nav-item m-2 col-10';
         ul.appendChild(li);
-        li.innerHTML = `<a href="#" class="nav-link active" aria-current="page">Episode ${result.id}</a>`;
+        li.innerHTML = `<a href="#" class="nav-link active" aria-current="page" style="background: rgb(0, 199, 24)">Episode ${result.id}</a>`;
         li.onclick = () => fetchEpisodes(result.id);
     })
     const button = document.createElement('div');
-    button.className = 'd-flex p-2 loadmore'
-    button.innerHTML = `<button type="button" class="btn btn-outline-primary">Load More</button>`;
+    button.className = 'd-flex p-2 loadmore';
+    button.innerHTML = `<button id="loadmore" type="button" class="btn btn-outline-primary">Load More</button>`;
     button.onclick = () => { fetchAllEpisodes(resJson.info.next); button.className = 'd-none' };
     list.appendChild(button);
 }
